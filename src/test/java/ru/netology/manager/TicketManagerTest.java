@@ -2,10 +2,13 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.netology.domain.TicketByTimeAscComparator;
 import ru.netology.domain.TicketOffer;
 import ru.netology.repository.TicketRepository;
 
+import java.sql.Time;
 import java.util.Arrays;
+import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -48,7 +51,7 @@ class TicketManagerTest {
 
     @Test
     public void shouldFindFromTo() {
-        TicketOffer[] actual = manager.findAll("Vnu", "OGZ");
+        TicketOffer[] actual = manager.findAll("VNU", "OGZ");
         TicketOffer[] expected = new TicketOffer[]{eighth, third, tenth};
     assertArrayEquals(actual, expected);
     }
@@ -60,4 +63,10 @@ class TicketManagerTest {
         assertArrayEquals(actual, expected);
     }
 
+//    @Test
+//    public void shouldFindFastest() {
+//        TicketOffer[] actual = manager.findAll("KUF", "LED", TicketOffer::compareTo);
+//        TicketOffer[] expected = new TicketOffer[]{fifth, ninth};
+//        assertArrayEquals(actual, expected);
+//    }
 }
