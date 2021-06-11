@@ -26,6 +26,8 @@ class TicketManagerTest {
     private TicketOffer eighth = new TicketOffer(8, 3500, "VNU", "OGZ", 140);
     private TicketOffer ninth = new TicketOffer(9, 5500, "KUF", "LED", 90);
     private TicketOffer tenth = new TicketOffer(10, 7500, "VNU", "OGZ", 135);
+    private TicketByTimeAscComparator comparator = new TicketByTimeAscComparator();
+
 
     @BeforeEach
     public void setUp() {
@@ -65,7 +67,7 @@ class TicketManagerTest {
 
     @Test
     public void shouldFindFastest() {
-        TicketOffer[] actual = manager.findAll("KUF", "LED", TicketOffer::compareTo);
+        TicketOffer[] actual = manager.findAll("KUF", "LED", comparator);
         TicketOffer[] expected = new TicketOffer[]{fifth, ninth};
         assertArrayEquals(actual, expected);
     }
