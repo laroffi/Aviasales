@@ -63,10 +63,10 @@ class TicketManagerTest {
         assertArrayEquals(actual, expected);
     }
 
-//    @Test
-//    public void shouldFindFastest() {
-//        TicketOffer[] actual = manager.findAll("KUF", "LED", TicketOffer::compareTo);
-//        TicketOffer[] expected = new TicketOffer[]{fifth, ninth};
-//        assertArrayEquals(actual, expected);
-//    }
+    @Test
+    public void shouldFindFastest() {
+        TicketOffer[] actual = manager.findAll("KUF", "LED", TicketOffer::compareTo);
+        TicketOffer[] expected = new TicketOffer[]{fifth, ninth};
+        assertArrayEquals(actual, expected);
+    }
 }
